@@ -8,7 +8,7 @@ import (
 config: {
 	// Flags
 	// use Spire-based mTLS (ours or another)
-	spire: bool | *false @tag(spire,type=bool)
+	spire: bool | *false @tag(spire,type=bool)#Turn spire off set to false (used to create npe certs)
 	// deploy our own server and agent
 	deploy_spire: bool | *spire @tag(use_spire,type=bool)
 	// if we're deploying into OpenShift, request extra permissions
@@ -18,7 +18,7 @@ config: {
 	// deploy and configure audit pipeline for observability telemetry
 	enable_audits: bool | *true @tag(enable_audits,type=bool)
 	// whether to automatically copy the image pull secret to watched namespaces for sidecar injection
-	auto_copy_image_pull_secret: bool | *true @tag(auto_copy_image_pull_secret, type=bool)
+	auto_copy_image_pull_secret: bool | *true @tag(auto_copy_image_pull_secret, type=bool)#To enable/disable copying of the secrets (only use for development)
 	// namespace the operator will deploy into
 	operator_namespace: string | *"gm-operator" @tag(operator_namespace, type=string)
 
@@ -122,7 +122,7 @@ defaults: {
 		// have different certs for the ingress and internal connections (this is the case for prod)
 		// then you will need to add those certs to another secret and specity that
 		// below at defaults.core_internal_tls_certs.cert_secret.
-		enable_tls:  false
+		enable_tls:  true
 		secret_name: "gm-edge-ingress-certs"
 		oidc: {
 			endpoint_host: ""
