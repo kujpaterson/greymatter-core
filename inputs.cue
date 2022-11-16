@@ -104,7 +104,7 @@ defaults: {
 		index: "gm-audits-%Y-%m"
 		// elasticsearch_host can be an IP address or DNS hostname to your Elasticsearch instance.
 		// It's set to a non-empty value so that the audit-pipeline starts successfully.
-		elasticsearch_host: "localhost"
+		elasticsearch_host: "738aae73258b4cbe860493454f601052.centralus.azure.elastic-cloud.com"
 		// elasticsearch_port is the port of your Elasticsearch instance.
 		elasticsearch_port: 443
 		// elasticsearch_endpoint is the full endpoint containing protocol, host, and port
